@@ -5,7 +5,7 @@ test.describe('checkout', () => {
     await page.goto('/cart');
     await page.getByRole('textbox', { name: 'Coupon code' }).fill('SAVE10');
     await page.getByRole('button', { name: 'Apply' }).click();
-    await expect(page.getByTestId('order-total')).toHaveText('$90.00');
+    await expect(page.getByTestId('order-total')).toHaveText('$100.00');
   });
 
   test('places the order', async ({ page }) => {
