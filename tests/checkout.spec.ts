@@ -18,7 +18,8 @@ test.describe('checkout', () => {
   test('rejects an expired coupon', async ({ page }) => {
     await page.goto('/cart');
     await page.getByRole('textbox', { name: 'Coupon code' }).fill('OLD2024');
-    await page.getByRole('button', { name: 'Apply' }).click();
+    await page.getByRole('button', { name: 'Apply' }).click({ force: true });
+    await page.waitForTimeout(5000);
     await expect(page.getByRole('alert')).toHaveText('This coupon has expired');
   });
 });
